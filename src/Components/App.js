@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Container from './Container/Container';
+import Feedback from './Feedback/Feedback';
 
-const App = () => {
-  return (
-    <Container>
-      {/* //     <Profile */}
-      {/* //       name={user.name}
-  //       tag={user.tag}
-  //       location={user.location}
-  //       avatar={user.avatar}
-  //       stats={user.stats}
-  //     />
-  //     <Statistics title="Upload stats" stats={statisticalData} />
-  //     <FriendList friends={friends} />
-  //     <TransactionHistory items={transactions} /> */}
-    </Container>
-  );
-};
+class App extends Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
+
+  render() {
+    return (
+      <Container>
+        <div>
+          <h2>Please leave feedback</h2>
+          {Object.keys(this.state).map(item => (
+            <Feedback key={item} status={item} />
+          ))}
+          <h2>Statistics</h2>
+          <p>Good:{this.state.good}</p>
+          <p>Neutral:{this.state.neutral}</p>
+          <p>Bad:{this.state.bad}</p>
+        </div>
+      </Container>
+    );
+  }
+}
 
 export default App;
