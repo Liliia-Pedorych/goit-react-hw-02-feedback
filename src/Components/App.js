@@ -16,7 +16,6 @@ class App extends Component {
         [option]: prevState[option] + 1,
       };
     });
-    // console.log([option]);
   };
 
   render() {
@@ -27,8 +26,6 @@ class App extends Component {
       (good / countTotalFeedback) *
       100
     ).toFixed(1);
-
-    // console.log(countTotalFeedback);
 
     return (
       <Section title="Please leave feedback">
